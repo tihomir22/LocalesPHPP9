@@ -36,7 +36,7 @@
         </thead>
 
         <?php foreach($datosEjemplo as $valor) : ?>
-        <tr>
+        <tr data-toggle="collapse" href='<?="#collapseExample".$valor->getID() ?>' aria-expanded="false" aria-controls='<?="collapseExample".$valor->getID() ?>'>
             <td><?= $valor->getID() ?></td>
             <td><?= $valor->getEmplazamiento() ?></td>
             <td><?= $valor->getCodigoPortal() ?></td>
@@ -46,14 +46,52 @@
             <td><?= $valor->getRefMuni() ?></td>
             <td><?= $valor->getPoligono() ?></td>
             <td><?= $valor->getZonaSaturada() ?></td>
+
             <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+
+
+
         </tr>
+
+
+            <?php $array=$valor->getListaLicencias();
+
+            $i=0;
+            $licencia=current($array);
+            while($i<sizeof($array)) {
+
+
+
+
+                    echo '
+                         <tr class="collapse" id="collapseExample'.$valor->getID().'">
+                            <td class="">' . $licencia->getIdLicencia() . '</td>    
+                            <td class="">' . $licencia->getTitulo() . '</td>  
+                            <td class="">' . $licencia->getFechaCreacion() . '</td>  
+                            <td class="">' . $licencia->getExpediente() . '</td>  
+                            <td class="">' . $licencia->getANYO() . '</td>  
+                            <td class="">' . $licencia->getLocalId() . '</td>  
+                            
+                        </tr>
+                        
+             '
+                ;
+                $licencia=next($array);
+                    $i=$i+1;
+        }
+        $licencia=end($array);
+            ?>
+
+
+
         <?php endforeach; ?>
 
 
         </table>
     </div>
 </div>
+
+
 </body>
 <footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -55,6 +55,11 @@ class Locales
     private $Comentarios;
 
     /**
+     * @var array
+     */
+    private $listaLicencias=[];
+
+    /**
      * Locales constructor.
      * @param int $ID
      * @param string $Emplazamiento
@@ -82,6 +87,23 @@ class Locales
 
 
     }
+
+    /**
+     * @return array
+     */
+    public function getListaLicencias(): array
+    {
+        return $this->listaLicencias;
+    }
+
+    /**
+     * @param array $listaLicencias
+     */
+    public function setListaLicencias(array $listaLicencias)
+    {
+        $this->listaLicencias = $listaLicencias;
+    }
+
 
     /**
      * @return int
