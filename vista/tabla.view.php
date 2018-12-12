@@ -1,6 +1,10 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://use.fontawesome.com/aabade6692.js"></script>
+
+
     <style>
         .custab{
             border: 1px solid #ccc;
@@ -20,8 +24,7 @@
     <div class="custyle">
         <table class="table table-hover" custab">
         <thead>
-        <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
-        <tr>
+        <tr class="bg-secondary" style="color:white;">
             <th>ID</th>
             <th>Emplazamiento</th>
             <th>CodigoPortal</th>
@@ -47,7 +50,7 @@
             <td><?= $valor->getPoligono() ?></td>
             <td><?= $valor->getZonaSaturada() ?></td>
 
-            <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            <td class="text-center"><a class='btn btn-info btn-xs' href="#"><i class="fa fa-eye" style="font-size:20px;"></i></a> <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash" style="font-size:20px;"></i></a></td>
 
 
 
@@ -57,14 +60,16 @@
             <?php $array=$valor->getListaLicencias();
 
             $i=0;
-            $licencia=current($array);
+
             while($i<sizeof($array)) {
+                $licencia=next($array);
+                    if($licencia===false){
+
+                    }else {
 
 
-
-
-                    echo '
-                         <tr class="collapse" id="collapseExample'.$valor->getID().'">
+                        echo '
+                         <tr class="collapse bg-primary" id="collapseExample' . $valor->getID() . '" style="color:white;">
                             <td class="">' . $licencia->getIdLicencia() . '</td>    
                             <td class="">' . $licencia->getTitulo() . '</td>  
                             <td class="">' . $licencia->getFechaCreacion() . '</td>  
@@ -74,12 +79,15 @@
                             
                         </tr>
                         
-             '
-                ;
-                $licencia=next($array);
+             ';
+                        }
+
+
+
                     $i=$i+1;
         }
-        $licencia=end($array);
+
+
             ?>
 
 
