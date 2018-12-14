@@ -21,6 +21,15 @@
 </head>
 <body>
 <div class="container-fluid" style="margin: 10px;">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Locales</h1>
+            <p class="lead">En esta tabla se muestran los locales con sus respectivas licencias relacionadas mediante SQL.</p>
+            <p class="badge badge-primary"><i class="fa fa-info" style="font-size: 11px;"></i>  Se pueden clickar sobre cada Local mostrado a continuación y se abrirá un desplegable con sus licencias.</p>
+        </div>
+    </div>
+
     <div class="custyle">
         <table class="table table-hover" custab">
         <thead>
